@@ -1,0 +1,13 @@
+[color]
+	ui = true
+[user]
+	name = Al Nguyen
+	email = al@rocketrip.com
+[alias]
+	st = status
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
+
+[push]
+	default = simple
+[rerere]
+	enabled = true
