@@ -1,15 +1,25 @@
 [color]
 	ui = true
-[user]
-	name = Al Nguyen
-	email = al@rocketrip.com
+
+[color "status"]
+	added = cyan
+	changed = green
+	untracked = red
+
+[core]
+	editor = /usr/bin/vim
+
 [alias]
+	lg = log --graph --pretty=format:"%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset" --abbrev-commit --date=relative
 	st = status
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
+	p = remote update -p
 
 [push]
 	default = simple
+
 [rerere]
 	enabled = true
-[core]
-	editor = /usr/bin/vim
+
+[user]
+	name = Al Nguyen
+	email = al@rocketrip.com
