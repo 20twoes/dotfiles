@@ -1,14 +1,40 @@
-"source $VIMRUNTIME/vimrc_example.vim
-"source $VIMRUNTIME/mswin.vim
-"behave mswin
+" Some inspiration from http://phuzz.org/vimrc.html
 
-" Vimrc file, http://phuzz.org
+set nocompatible
+filetype off  " Required for Vundle
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'SirVer/ultisnips'
+
+" All Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin on    " required
+
+" Automatically open NERDTree when vim starts up if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" NERDTree file filters
+let NERDTreeIgnore = ['\.pyc$']
+
+" Non-Plugin stuff after this line
 
 "set autowrite      " auto saves changes when quitting and swiching buffer
 "set expandtab      " tabs are converted to spaces, use only when required
 "set noautoindent
 set autoindent     " always set autoindenting on
-set nocindent 
+set nocindent
 "set cindent            " cindent
 set nosmartindent
 "set smartindent        " smart indent
@@ -28,7 +54,6 @@ set ls=2            " allways show status line
 set modeline        " last lines in document sets vim mode
 set modelines=3     " number lines checked for modelines
 set nobackup        " do not keep a backup file
-set nocompatible
 set nostartofline   " don't jump to first character when paging
 set noswapfile		" do not keep a swap file
 set number          " show line numbers
@@ -49,21 +74,10 @@ set visualbell    " turn off visual bell
 set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
 set pastetoggle=<F2>
 
-syntax on           " syntax highlighing
-"colorscheme desert    " use this color scheme
-"set background=dark        " adapt colors for background
-if has("gui_running")
-	if has("gui_gtk2")
-		set guifont=Consolas\ 10
-	elseif has("gui_win32")
-		set guifont=Consolas:h10:cANSI
-	endif
-    set lines=50       " window height 
-    set columns=90        " window width
-    "set background=light   " adapt colors for background
-    "set selectmode=mouse,key,cmd
-    "set keymodel=
-endif
+"syntax on
+syntax enable
+set background=dark
+colorscheme solarized
 
 if has("autocmd")
     " Restore cursor position
@@ -73,14 +87,14 @@ if has("autocmd")
     au FileType helpfile set nonumber      " no line numbers when viewing help
     au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
     au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
-    
+
     " When using mutt, text width=72
     au FileType mail,tex set textwidth=72
     au FileType cpp,c,java,sh,pl,php,asp  set autoindent
     "au FileType cpp,c,java,sh,pl,php,asp  set smartindent
     "au FileType cpp,c,java,sh,pl,php,asp  set cindent
     "au BufRead mutt*[0-9] set tw=72
-    
+
     " Automatically chmod +x Shell and Perl scripts
     "au BufWritePost   *.sh             !chmod +x %
     "au BufWritePost   *.pl             !chmod +x %
@@ -93,7 +107,7 @@ endif
 " Keyboard mappings
 map <F1> :bp<CR>  " map F1 to open previous buffer
 map <F2> :bn<CR>  " map F2 to open next buffer
-"map <F3> :NERDTreeToggle<CR>  
+nmap ,n :NERDTreeToggle<CR>
 "map <silent> <C-N> :silent noh<CR> " turn off highlighted search
 "map ,v :sp ~/.vimrc<cr> " edit my .vimrc file in a split
 "map ,e :e ~/.vimrc<cr>      " edit my .vimrc file
@@ -132,92 +146,4 @@ map <F2> :bn<CR>  " map F2 to open next buffer
 "imap <Esc>Ox 8
 "imap <Esc>Oy 9
 "imap <Esc>Oz 0
-
-" Colorscheme
-" Maintainer:	Al Nguyen <al.nguyen@gmail.com>
-
-" Available term colors
-" ---------------------
-" Black
-" DarkBlue
-" DarkGreen
-" DarkCyan
-" DarkRed
-" DarkMagenta
-" Brown, DarkYellow
-" LightGray, LightGrey, Gray, Grey
-" DarkGray, DarkGrey
-" Blue, LightBlue
-" Green, LightGreen
-" Cyan, LightCyan
-" Red, LightRed
-" Magenta, LightMagenta
-" Yellow, LightYellow
-" White
-
-hi clear
-set background=dark
-if exists("syntax_on")
-  syntax reset
-endif
-"let g:colors_name = "al"
-hi Normal		  guifg=white  guibg=#111111
-hi Scrollbar	  guifg=darkcyan guibg=cyan
-hi Menu			  guifg=black guibg=cyan
-hi SpecialKey	  term=bold  cterm=bold  ctermfg=darkred  guifg=#cc0000
-hi NonText		  term=bold  cterm=bold  ctermfg=darkred  gui=bold      guifg=#cc0000
-hi Directory	  term=bold  cterm=bold  ctermfg=brown  guifg=#cc8000
-hi ErrorMsg		  term=standout  cterm=bold  ctermfg=grey  ctermbg=red guifg=grey  guibg=Red
-hi Search		  term=reverse  cterm=bold	ctermfg=darkred  ctermbg=lightcyan	guifg=darkred  guibg=lightcyan
-hi MoreMsg		  term=bold  cterm=bold  ctermfg=darkgreen	gui=bold  guifg=SeaGreen
-hi ModeMsg		  term=bold  cterm=bold  gui=bold  guifg=White	guibg=Blue
-hi LineNr		  term=underline  cterm=bold  ctermfg=black ctermbg=darkgrey	guifg=#555555	guibg=#222222
-hi Question		  term=standout  cterm=bold  ctermfg=lightgreen	gui=bold  guifg=lightgreen
-hi StatusLine	  term=bold,reverse  cterm=bold ctermfg=darkgrey ctermbg=white gui=bold guifg=#333333 guibg=white
-hi StatusLineNC   term=reverse	ctermfg=white ctermbg=lightblue guifg=white guibg=blue
-hi Title		  term=bold  cterm=bold  ctermfg=darkmagenta  gui=bold	guifg=Magenta
-hi Visual		  term=reverse	cterm=reverse  gui=reverse
-hi WarningMsg	  term=standout  cterm=bold  ctermfg=darkred guifg=Red
-hi Cursor         term=reverse cterm=reverse gui=reverse 
-hi Comment		  term=bold  cterm=bold ctermfg=darkmagenta  guifg=#777777
-hi Constant		  term=underline  cterm=bold ctermfg=lightgray guifg=lightgray
-hi Special		  term=bold  cterm=bold ctermfg=lightcyan  guifg=lightcyan
-hi Identifier	  term=underline   ctermfg=darkcyan  guifg=darkcyan
-hi Statement	  term=bold  cterm=bold ctermfg=lightgray	gui=bold guifg=lightgray
-hi PreProc		  term=underline  ctermfg=darkcyan   guifg=darkcyan
-hi Type			  term=underline  cterm=bold ctermfg=grey  gui=bold  guifg=#60ff60
-hi Error		  term=reverse	ctermfg=darkcyan  ctermbg=black  guifg=Red	guibg=Black
-hi Todo			  term=standout  ctermfg=black	ctermbg=gray guifg=black  guibg=gray
-hi CursorLine	  term=none cterm=none gui=none 
-hi CursorColumn	  term=none cterm=none gui=none 
-hi parens ctermfg=lightgreen
-hi MatchParen	  term=reverse	ctermbg=darkgreen  ctermfg=darkgray guibg=green guifg=darkgray
-hi TabLine		  term=bold,reverse  cterm=bold ctermfg=lightblue ctermbg=white gui=bold guifg=blue guibg=white
-hi TabLineFill	  term=bold,reverse  cterm=bold ctermfg=lightblue ctermbg=white gui=bold guifg=blue guibg=white
-hi TabLineSel	  term=reverse	ctermfg=white ctermbg=lightblue guifg=white guibg=blue
-hi link IncSearch		Visual
-hi link String			Question
-hi link Character		Constant
-hi link Number			Constant
-hi link Boolean			Constant
-hi link Float			Number
-hi link Function		Identifier
-hi link Conditional		Statement
-hi link Repeat			Statement
-hi link Label			Statement
-hi link Operator		Statement
-hi link Keyword			Statement
-hi link Exception		Statement
-hi link Include			PreProc
-hi link Define			PreProc
-hi link Macro			PreProc
-hi link PreCondit		PreProc
-hi link StorageClass	Type
-hi link Structure		Type
-hi link Typedef			Type
-hi link Tag				Special
-hi link SpecialChar		Special
-hi link Delimiter		Special
-hi link SpecialComment	Special
-hi link Debug			Special
 
