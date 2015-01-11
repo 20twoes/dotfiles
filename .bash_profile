@@ -5,6 +5,11 @@ alias grep='grep --color=auto'
 alias dgrep="grep --exclude-dir=.git --exclude='*pyc' --recursive"
 alias ddgrep="dgrep --exclude-dir=migrations --exclude-dir=fixtures --exclude-dir=staticfiles"
 
+if [[ $OSTYPE == darwin* ]]; then
+    alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true"
+    alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool false"
+fi
+
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 ### Added by the Heroku Toolbelt
