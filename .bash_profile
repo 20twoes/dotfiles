@@ -2,7 +2,7 @@
 alias ls='ls -G'
 alias ll='ls -alFG'
 alias grep='grep --color=auto'
-alias dgrep="grep --exclude-dir=.git --exclude='*pyc' --recursive"
+alias dgrep="grep --exclude-dir=.git --exclude-dir=.sass-cache --exclude='*pyc' --recursive"
 alias ddgrep="dgrep --exclude-dir=migrations --exclude-dir=fixtures --exclude-dir=staticfiles"
 
 if [[ $OSTYPE == darwin* ]]; then
