@@ -1,7 +1,12 @@
-" Some inspiration from http://phuzz.org/vimrc.html
-
+" Make Vim more useful
 set nocompatible
-filetype off  " Required for Vundle
+
+
+"
+" Start Vundle configuration
+"
+
+filetype off
 
 
 " set the runtime path to include Vundle and initialize
@@ -21,14 +26,13 @@ Plugin 'SirVer/ultisnips'
 call vundle#end()            " required
 filetype plugin on    " required
 
-" Automatically open NERDTree when vim starts up if no files are specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"
+" End Vundle configuration
+"
+
 
 " NERDTree file filters
 let NERDTreeIgnore = ['\.pyc$']
-
-" Non-Plugin stuff after this line
 
 "set autowrite      " auto saves changes when quitting and swiching buffer
 "set expandtab      " tabs are converted to spaces, use only when required
@@ -72,6 +76,8 @@ set ttyfast         " smoother changes
 set undolevels=1000
 set visualbell    " turn off visual bell
 set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
+" Enhance command-line completion
+set wildmenu
 set pastetoggle=<F2>
 
 "syntax on
