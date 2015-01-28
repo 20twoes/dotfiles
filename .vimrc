@@ -1,13 +1,11 @@
 " Make Vim more useful
 set nocompatible
 
-
 "
 " Start Vundle configuration
 "
 
 filetype off
-
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -17,10 +15,13 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
+"Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,9 +31,19 @@ filetype plugin on    " required
 " End Vundle configuration
 "
 
-
 " NERDTree file filters
 let NERDTreeIgnore = ['\.pyc$']
+
+"" Syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_python_checkers = ['pyflakes']
+"let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 
 "set autowrite      " auto saves changes when quitting and swiching buffer
 "set expandtab      " tabs are converted to spaces, use only when required
