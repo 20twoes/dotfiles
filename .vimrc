@@ -18,7 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -35,14 +35,14 @@ filetype plugin on    " required
 let NERDTreeIgnore = ['\.pyc$']
 
 "" Syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_python_checkers = ['pyflakes']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 
 "set autowrite      " auto saves changes when quitting and swiching buffer
