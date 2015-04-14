@@ -46,7 +46,7 @@ let g:syntastic_python_checkers = ['pyflakes']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 
 "set autowrite      " auto saves changes when quitting and swiching buffer
-"set expandtab      " tabs are converted to spaces, use only when required
+set expandtab      " tabs are converted to spaces, use only when required
 "set noautoindent
 set autoindent     " always set autoindenting on
 set nocindent
