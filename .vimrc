@@ -22,6 +22,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-airline'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +48,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
+
+"" CtrlP settings
+"let g:ctrlp_map = '<c-p>'  " TODO: This mapping isn't working.  Troubleshoot later.
+"let g:ctrlp_map = 'CtrlP'
+""let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
 
 "set autowrite      " auto saves changes when quitting and swiching buffer
 set expandtab      " tabs are converted to spaces, use only when required
@@ -91,76 +100,52 @@ set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
 set wildmenu
 set pastetoggle=<F2>
 
-"syntax on
 syntax enable
 set background=dark
 colorscheme solarized
 
-if has("autocmd")
-    " Restore cursor position
-    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-    " Filetypes (au = autocmd)
-    au FileType helpfile set nonumber      " no line numbers when viewing help
-    au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
-    au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
-
-    " When using mutt, text width=72
-    au FileType mail,tex set textwidth=72
-    au FileType cpp,c,java,sh,pl,php,asp  set autoindent
-    "au FileType cpp,c,java,sh,pl,php,asp  set smartindent
-    "au FileType cpp,c,java,sh,pl,php,asp  set cindent
-    "au BufRead mutt*[0-9] set tw=72
-
-    " Automatically chmod +x Shell and Perl scripts
-    "au BufWritePost   *.sh             !chmod +x %
-    "au BufWritePost   *.pl             !chmod +x %
-
-    " File formats
-    au BufNewFile,BufRead  *.pls    set syntax=dosini
-    au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
-endif
+"if has("autocmd")
+"    " Restore cursor position
+"    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+"
+"    " Filetypes (au = autocmd)
+"    au FileType helpfile set nonumber      " no line numbers when viewing help
+"    au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
+"    au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
+"
+"    " When using mutt, text width=72
+"    au FileType mail,tex set textwidth=72
+"    au FileType cpp,c,java,sh,pl,php,asp  set autoindent
+"    "au FileType cpp,c,java,sh,pl,php,asp  set smartindent
+"    "au FileType cpp,c,java,sh,pl,php,asp  set cindent
+"    "au BufRead mutt*[0-9] set tw=72
+"
+"    " Automatically chmod +x Shell and Perl scripts
+"    "au BufWritePost   *.sh             !chmod +x %
+"    "au BufWritePost   *.pl             !chmod +x %
+"
+"    " File formats
+"    au BufNewFile,BufRead  *.pls    set syntax=dosini
+"    au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
+"endif
 
 " Keyboard mappings
+let mapleader=','
+
 map <F1> :bp<CR>  " map F1 to open previous buffer
 map <F2> :bn<CR>  " map F2 to open next buffer
-nmap ,n :NERDTreeToggle<CR>
-"map <silent> <C-N> :silent noh<CR> " turn off highlighted search
-"map ,v :sp ~/.vimrc<cr> " edit my .vimrc file in a split
-"map ,e :e ~/.vimrc<cr>      " edit my .vimrc file
-"map ,u :source ~/.vimrc<cr> " update the system settings from my vimrc file
-"----- write out html file
-"map ,h :source $VIM/vim71/syntax/2html.vim<cr>:w<cr>:clo<cr>
 
+" Open nerdtree.vim
+nnoremap <leader>n :NERDTreeToggle<CR>
 
-" Common command line typos
-"cmap W w
-"cmap Q q
+" Clear search highlight until next search
+nnoremap <leader><space> :nohlsearch<CR>
 
-" Keyboard mapping for numeric keypad
-"imap <Esc>OM <c-m>
-" map <Esc>OM <c-m>
-"imap <Esc>OP <nop>
-" map <Esc>OP <nop>
-"imap <Esc>OQ /
-" map <Esc>OQ /
-"imap <Esc>OR *
-" map <Esc>OR *
-"imap <Esc>OS -
-" map <Esc>OS -
+" Open ag.vim
+nnoremap <leader>a :Ag
 
-"imap <Esc>Ol +
-"imap <Esc>Om -
-"imap <Esc>On ,
-"imap <Esc>Op 0
-"imap <Esc>Oq 1
-"imap <Esc>Or 2
-"imap <Esc>Os 3
-"imap <Esc>Ot 4
-"imap <Esc>Ou 5
-"imap <Esc>Ov 6
-"imap <Esc>Ow 7
-"imap <Esc>Ox 8
-"imap <Esc>Oy 9
-"imap <Esc>Oz 0
+" Open tagbar.vim
+nnoremap <leader>t :TagbarToggle<CR>
 
+" Open ctrlp.vim
+nnoremap <leader>p :CtrlP<CR>
