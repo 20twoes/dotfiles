@@ -48,6 +48,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
+let g:syntastic_html_checkers = ['']
 
 "" CtrlP settings
 "let g:ctrlp_map = '<c-p>'  " TODO: This mapping isn't working.  Troubleshoot later.
