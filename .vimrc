@@ -59,7 +59,7 @@ let g:syntastic_javascript_checkers = ['jsxhint']
 "set autowrite      " auto saves changes when quitting and swiching buffer
 set expandtab      " tabs are converted to spaces, use only when required
 "set noautoindent
-set autoindent     " always set autoindenting on
+set autoindent     " align the new line indent with the previous line
 set nocindent
 "set cindent            " cindent
 set nosmartindent
@@ -87,6 +87,7 @@ set number          " show line numbers
 set ruler           " show the cursor position all the time
 set scrolloff=3     " keep 3 lines when scrolling
 set shiftwidth=4    " numbers of spaces to (auto)indent
+set shiftround      " round indent to multiple of 'shiftwidth'
 set shortmess=atI   " Abbreviate messages
 set showcmd         " display incomplete commands
 set showmode
