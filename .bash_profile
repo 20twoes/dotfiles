@@ -22,9 +22,13 @@ export PATH=/usr/local/bin:$PATH
 # Use this git (http://git-scm.com/download/mac) instead of Xcode git
 export PATH=/usr/local/git/bin:$PATH
 
+# Git autocomplete
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
+
+# Virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
 
 # http://kchung.co/public/.bashrc
 # Sexy Solarized Bash Prompt, inspired by "Extravagant Zsh Prompt"
