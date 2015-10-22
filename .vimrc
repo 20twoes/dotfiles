@@ -16,7 +16,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
@@ -25,7 +24,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,10 +44,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 let g:syntastic_html_checkers = ['']
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']  " TODO: Get eslint to work
+let g:syntastic_javascript_eslint_args = '--ext .jsx --ext .js'
 
 "" CtrlP settings
 "let g:ctrlp_map = '<c-p>'  " TODO: This mapping isn't working.  Troubleshoot later.
@@ -135,8 +134,8 @@ colorscheme solarized
 " Keyboard mappings
 let mapleader=','
 
-map <F1> :bp<CR>  " map F1 to open previous buffer
-map <F2> :bn<CR>  " map F2 to open next buffer
+"map <F1> :bp<CR>  " map F1 to open previous buffer
+"map <F2> :bn<CR>  " map F2 to open next buffer
 
 " Open nerdtree.vim
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -149,6 +148,3 @@ nnoremap <leader>a :Ag
 
 " Open tagbar.vim
 nnoremap <leader>t :TagbarToggle<CR>
-
-" Open ctrlp.vim
-nnoremap <leader>p :CtrlP<CR>
