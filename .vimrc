@@ -51,38 +51,29 @@ let g:syntastic_javascript_checkers = ['eslint']  " TODO: Get eslint to work
 let g:syntastic_javascript_eslint_args = '--ext .jsx --ext .js'
 
 "" CtrlP settings
-"let g:ctrlp_map = '<c-p>'  " TODO: This mapping isn't working.  Troubleshoot later.
-"let g:ctrlp_map = 'CtrlP'
-""let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
 
-"set autowrite      " auto saves changes when quitting and swiching buffer
 set expandtab      " tabs are converted to spaces, use only when required
-"set noautoindent
 set autoindent     " align the new line indent with the previous line
 set nocindent
-"set cindent            " cindent
 set nosmartindent
-"set smartindent        " smart indent
-"set nowrap         " don't wrap lines
-"set sm             " show matching braces, somewhat annoying...
 "set ttyscroll=0        " turn off scrolling, didn't work well with PuTTY
 "set viminfo='20,<50,s10,h
 set backspace=indent,eol,start
+set cursorline cursorcolumn
 set encoding=utf-8
 set hidden
 set history=1000
 set hlsearch        " highlight searches
 set ignorecase      " ignore case when searching
 set incsearch       " do incremental searching
-set laststatus=2
-set ls=2            " allways show status line
+set laststatus=2    " allways show status line
 set modeline        " last lines in document sets vim mode
 set modelines=3     " number lines checked for modelines
 set nobackup        " do not keep a backup file
 set nostartofline   " don't jump to first character when paging
 set noswapfile		" do not keep a swap file
 set number          " show line numbers
-"set relativenumber
 set ruler           " show the cursor position all the time
 set scrolloff=3     " keep 3 lines when scrolling
 set shiftwidth=4    " numbers of spaces to (auto)indent
@@ -96,10 +87,10 @@ set tabstop=4       " numbers of spaces of tab character
 set title           " show title in console title bar
 set ttyfast         " smoother changes
 set undolevels=1000
-set visualbell    " turn off visual bell
+set visualbell      " turn off visual bell
 set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
-" Enhance command-line completion
-set wildmenu
+set wildmenu         " Enhance command-line completion
+
 set pastetoggle=<F2>
 
 syntax enable

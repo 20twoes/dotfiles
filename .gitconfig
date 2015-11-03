@@ -11,7 +11,6 @@
 
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
-	st = status
 	p = remote update -p
 
 [push]
