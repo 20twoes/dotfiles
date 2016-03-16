@@ -95,6 +95,7 @@ set pastetoggle=<F2>
 
 syntax enable
 set background=dark
+let g:solarized_contrast = "low"
 colorscheme solarized
 
 if has("autocmd")
