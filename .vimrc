@@ -44,6 +44,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'  " TODO: Use Python 3.  Doesn't work for some reason
 let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 let g:syntastic_html_checkers = ['']
@@ -97,6 +98,8 @@ syntax enable
 set background=dark
 let g:solarized_contrast = "low"
 colorscheme solarized
+
+filetype indent plugin on
 
 if has("autocmd")
     highlight TrailingWhitespace guibg=red ctermbg=darkred
