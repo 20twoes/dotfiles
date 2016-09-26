@@ -30,7 +30,6 @@ fi
 # Virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
 
-# http://kchung.co/public/.bashrc
 # Sexy Solarized Bash Prompt, inspired by "Extravagant Zsh Prompt"
 # Customized for the Solarized color scheme by Sean O'Neil
 
@@ -93,4 +92,4 @@ parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-PS1="\[${BOLD}${BLUE}\]\u \[$BASE0\]at \[$BLUE\]\h \[$BASE0\]in \[$MAGENTA\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$MAGENTA\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+PS1="\[${BOLD}${MAGENTA}\]\u \[$BASE0\]at \[$MAGENTA\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BASE2\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"

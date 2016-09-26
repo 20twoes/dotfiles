@@ -1,4 +1,5 @@
 " Make Vim more useful
+" Make Vim more useful
 set nocompatible
 
 "
