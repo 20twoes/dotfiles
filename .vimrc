@@ -25,6 +25,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'klen/python-mode'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,7 +49,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'  " TODO: Use Python 3.  Doesn't work for some reason
-let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 let g:syntastic_html_checkers = ['']
 let g:syntastic_javascript_checkers = ['eslint']  " TODO: Get eslint to work
@@ -54,6 +57,14 @@ let g:syntastic_javascript_eslint_args = '--ext .jsx --ext .js'
 
 "" CtrlP settings
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
+
+" Python-mode settings
+let g:pymode_python = 'python3'
+let g:pymode_options_max_line_length = 124
+let g:pymode_rope_complete_on_dot = 0
+
+" vim-jsx settings
+let g:jsx_ext_required = 0
 
 set expandtab      " tabs are converted to spaces, use only when required
 set autoindent     " align the new line indent with the previous line
@@ -98,14 +109,14 @@ set pastetoggle=<F2>
 syntax enable
 set background=dark
 let g:solarized_contrast = "low"
-colorscheme solarized
+"colorscheme solarized
 
 filetype indent plugin on
 
-if has("autocmd")
-    highlight TrailingWhitespace guibg=red ctermbg=darkred
-    au BufRead,BufNewFile *.py,*.html,*.css,*.scss,*.js,*.jsx match TrailingWhitespace /\s\+$/
-endif
+"if has("autocmd")
+"    highlight TrailingWhitespace guibg=red ctermbg=darkred
+"    au BufRead,BufNewFile *.py,*.html,*.css,*.scss,*.js,*.jsx match TrailingWhitespace /\s\+$/
+"endif
 
 " Keyboard mappings
 let mapleader=','
