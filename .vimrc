@@ -24,8 +24,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
@@ -57,11 +56,6 @@ let g:syntastic_javascript_eslint_args = '--ext .jsx --ext .js'
 
 "" CtrlP settings
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
-
-" Python-mode settings
-let g:pymode_python = 'python3'
-let g:pymode_options_max_line_length = 124
-let g:pymode_rope_complete_on_dot = 0
 
 " vim-jsx settings
 let g:jsx_ext_required = 0
@@ -109,7 +103,7 @@ set pastetoggle=<F2>
 syntax enable
 set background=dark
 let g:solarized_contrast = "low"
-"colorscheme solarized
+colorscheme solarized
 
 filetype indent plugin on
 
@@ -121,20 +115,17 @@ filetype indent plugin on
 " Keyboard mappings
 let mapleader=','
 
-"map <F1> :bp<CR>  " map F1 to open previous buffer
-"map <F2> :bn<CR>  " map F2 to open next buffer
+nnoremap <leader>w :bp<CR>  " map F1 to open previous buffer
+nnoremap <leader>e :bn<CR>  " map F2 to open next buffer
 
 " Open nerdtree.vim
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 " Clear search highlight until next search
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Open ag.vim
 nnoremap <leader>a :Ag
-
-" Open tagbar.vim
-nnoremap <leader>t :TagbarToggle<CR>
 
 " Split window navigation shortcuts
 nnoremap <C-J> <C-W><C-J>
