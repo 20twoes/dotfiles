@@ -93,3 +93,7 @@ parse_git_branch () {
 }
 
 PS1="\[${BOLD}${MAGENTA}\]\u \[$BASE0\]at \[$MAGENTA\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$BASE2\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
