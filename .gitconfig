@@ -1,26 +1,26 @@
 [color]
-	ui = true
+    ui = true
 
 [color "status"]
-	added = cyan
-	changed = green
-	untracked = red
+    added = cyan
+    changed = green
+    untracked = red
 
 [core]
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
 
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
-	p = remote update -p
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
+    p = remote update -p
     s = status
     d = diff
 
 [push]
-	default = simple
+    default = simple
 
 [rerere]
-	enabled = true
+    enabled = true
 
 [user]
-	name = Al Nguyen
-	email = al.nguyen@gmail.com
+    name = Al Nguyen
+    email = al.nguyen@gmail.com
