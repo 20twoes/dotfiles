@@ -13,14 +13,8 @@ fi
 
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Brew doctor suggestion
-export PATH=/usr/local/bin:$PATH
-
-# Use this git (http://git-scm.com/download/mac) instead of Xcode git
-export PATH=/usr/local/git/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Git autocomplete
 if [ -f ~/.git-completion.bash ]; then
@@ -97,3 +91,8 @@ PS1="\[${BOLD}${MAGENTA}\]\u \[$BASE0\]at \[$MAGENTA\]\h \[$BASE0\]in \[$BLUE\]\
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
