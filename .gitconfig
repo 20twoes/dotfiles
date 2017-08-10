@@ -12,6 +12,8 @@
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --abbrev-commit --date=relative
 	p = remote update -p
+    s = status
+    d = diff
 
 [push]
 	default = simple
@@ -21,4 +23,4 @@
 
 [user]
 	name = Al Nguyen
-	email = al@rocketrip.com
+	email = al.nguyen@gmail.com
