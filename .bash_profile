@@ -16,13 +16,13 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # Brew doctor suggestion
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+# Use this git (brew install git) instead of Xcode git
+export PATH=/usr/local/git/bin:$PATH
+
 # Git autocomplete
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
-
-# Virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Sexy Solarized Bash Prompt, inspired by "Extravagant Zsh Prompt"
 # Customized for the Solarized color scheme by Sean O'Neil
@@ -96,3 +96,6 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Virtualenvwrapper
+source "$PYENV_ROOT/versions/$(cat $PYENV_ROOT/version)/bin/virtualenvwrapper.sh"
