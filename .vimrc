@@ -19,10 +19,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tommcdo/vim-fubitive'
 Plugin 'tpope/vim-surround'
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'pangloss/vim-javascript'
@@ -47,21 +47,23 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'  " TODO: Use Python 3.  Doesn't work for some reason
 "let g:syntastic_python_checkers = ['flake8']
 "let g:syntastic_scss_checkers = ['scss-lint']  " https://github.com/causes/scss-lint
 let g:syntastic_html_checkers = ['']
 let g:syntastic_javascript_checkers = ['eslint']  " TODO: Get eslint to work
 let g:syntastic_javascript_eslint_args = '--ext .jsx --ext .js'
 
-"" CtrlP settings
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
+" CtrlP settings
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore-dir node_modules -g ""'  " http://dougblack.io/words/a-good-vimrc.html#ctrlp-section
+
+" Ack/Ag settings
+let g:ackprg = 'ag --vimgrep'
 
 " vim-jsx settings
 let g:jsx_ext_required = 0
 
-set expandtab      " tabs are converted to spaces, use only when required
-set autoindent     " align the new line indent with the previous line
+"set expandtab      " tabs are converted to spaces, use only when required
+"set autoindent     " align the new line indent with the previous line
 set nocindent
 set nosmartindent
 "set ttyscroll=0        " turn off scrolling, didn't work well with PuTTY
@@ -75,6 +77,8 @@ set hlsearch        " highlight searches
 set ignorecase      " ignore case when searching
 set incsearch       " do incremental searching
 set laststatus=2    " allways show status line
+set list
+set listchars=eol:⏎,tab:␉·,trail:␠
 set modeline        " last lines in document sets vim mode
 set modelines=3     " number lines checked for modelines
 set nobackup        " do not keep a backup file
@@ -125,10 +129,20 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Open ag.vim
-nnoremap <leader>a :Ag
+nnoremap <leader>a :Ack!
 
 " Split window navigation shortcuts
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Replace 4 spaces with a tab
+map <leader>tab :s/    /\t/g<CR>
+map <leader>taball :%s/    /\t/g<CR>
+
+" Shift-Tab to insert real tabs
+inoremap <S-Tab> <C-V><Tab>
+
+" Python Debugger snippet
+inoremap <leader>pdb import ipdb;ipdb.set_trace()  # noqa<Esc>
