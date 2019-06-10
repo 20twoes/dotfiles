@@ -94,6 +94,7 @@ set showcmd         " display incomplete commands
 set showmode
 set smartcase		" ignore case if search pattern is all lowercase, case sensitive otherwise
 set softtabstop=4    " numbers of spaces to (auto)indent
+set suffixesadd=.js  " "goto file under cursor" will also check for files with these suffixes
 set tabstop=4       " numbers of spaces of tab character
 set title           " show title in console title bar
 set ttyfast         " smoother changes
