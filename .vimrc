@@ -18,15 +18,16 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tommcdo/vim-fubitive'
+"Plugin 'tommcdo/vim-fubitive'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'dense-analysis/ale'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
