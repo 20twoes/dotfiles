@@ -1,5 +1,4 @@
 " Make Vim more useful
-" Make Vim more useful
 set nocompatible
 
 "
@@ -18,16 +17,18 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'tommcdo/vim-fubitive'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'davidhalter/jedi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'dense-analysis/ale'
+Plugin 'vimwiki/vimwiki'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'michal-h21/vim-zettel'
+Plugin 'suan/vim-instant-markdown'
 
 " All Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,10 +61,23 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore-dir node_module
 " Ack/Ag settings
 let g:ackprg = 'ag --vimgrep'
 
+" FZF settings
+set rtp+=/usr/local/opt/fzf
+
 " vim-jsx settings
 let g:jsx_ext_required = 0
 
-"set expandtab      " tabs are converted to spaces, use only when required
+" Vimwiki settings
+let g:vimwiki_list = [{'path':'~/vimwiki/markdown/','ext':'.md','syntax':'markdown'}, {"path":"~/vimwiki/wiki/"}]
+
+" Vim-Zettel settings
+let g:zettel_format = "%Y%m%d-%H%M-%title"
+
+" vim-instant-markdown settings
+let g:instant_markdown_autostart = 0
+
+" General VIM settings
+set expandtab      " tabs are converted to spaces, use only when required
 "set autoindent     " align the new line indent with the previous line
 set nocindent
 set nosmartindent
@@ -88,15 +102,15 @@ set noswapfile		" do not keep a swap file
 set number          " show line numbers
 set ruler           " show the cursor position all the time
 set scrolloff=3     " keep 3 lines when scrolling
-set shiftwidth=4    " numbers of spaces to (auto)indent
+set shiftwidth=2    " numbers of spaces to (auto)indent
 set shiftround      " round indent to multiple of 'shiftwidth'
 set shortmess=atI   " Abbreviate messages
 set showcmd         " display incomplete commands
 set showmode
 set smartcase		" ignore case if search pattern is all lowercase, case sensitive otherwise
-set softtabstop=4    " numbers of spaces to (auto)indent
+set softtabstop=2    " numbers of spaces to (auto)indent
 set suffixesadd=.js  " "goto file under cursor" will also check for files with these suffixes
-set tabstop=4       " numbers of spaces of tab character
+set tabstop=2       " numbers of spaces of tab character
 set title           " show title in console title bar
 set ttyfast         " smoother changes
 set undolevels=1000
@@ -108,8 +122,8 @@ set pastetoggle=<F2>
 
 syntax enable
 set background=dark
-let g:solarized_contrast = "low"
-colorscheme solarized
+"let g:solarized_contrast = "low"
+"colorscheme solarized
 
 filetype indent plugin on
 
@@ -139,12 +153,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Replace 4 spaces with a tab
-map <leader>tab :s/    /\t/g<CR>
-map <leader>taball :%s/    /\t/g<CR>
-
-" Shift-Tab to insert real tabs
-inoremap <S-Tab> <C-V><Tab>
-
 " Python Debugger snippet
 inoremap <leader>pdb import ipdb;ipdb.set_trace()  # noqa<Esc>
+
+" vimwiki shortcuts
+nnoremap <leader>wc :VimwikiToggleListItem<CR>
+
+" vim-zettel shortcuts
+nnoremap <leader>zn :ZettelNew<CR>
+
+" FZF shortcuts
+nnoremap <leader>ff :GFiles<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>ft :Tags<CR>
